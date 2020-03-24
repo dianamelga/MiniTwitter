@@ -1,13 +1,16 @@
-package com.dianascode.minitwitter.app.ui
+package com.dianascode.minitwitter.app.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.dianascode.minitwitter.R
+import com.dianascode.minitwitter.app.common.Constantes.Companion.PREF_AUTH_RESPONSE
+import com.dianascode.minitwitter.app.common.SharedPreferencesManager
 import com.dianascode.minitwitter.app.retrofit.MiniTwitterClient
 import com.dianascode.minitwitter.app.retrofit.request.LoginRequest
 import com.dianascode.minitwitter.app.retrofit.response.AuthResponse
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Response
@@ -29,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         tvGoSignUp.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
         }
     }
 
@@ -41,6 +45,9 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
                 if(response.isSuccessful) {
                     Toast.makeText(this@MainActivity, "Sesion iniciada correctamente", Toast.LENGTH_SHORT).show()
+                    //TODO test
+                    SharedPreferencesManager.saveString(PREF_AUTH_RESPONSE, Gson().toJson(response.body()))
+
                     val i = Intent(this@MainActivity, DashboardActivity::class.java)
                     startActivity(i)
                     finish()

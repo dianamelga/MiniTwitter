@@ -7,5 +7,7 @@ package com.dianascode.minitwitter.app.common
 class Constantes {
     companion object {
         const val API_MINITWITTER_BASE_URL = "https://www.minitwitter.com:3001/apiv1/"
+        const val API_MINITWITTER_PHOTOS_BASE_URL = "https://www.minitwitter.com/apiv1/uploads/photos/"
+        const val PREF_AUTH_RESPONSE = "PREF_AUTH_RESPONSE"
     }
 }

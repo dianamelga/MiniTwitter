@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dianascode.minitwitter">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".app.common.MiniTwitter"
@@ -12,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".app.ui.DashboardActivity"
-            android:label="@string/title_activity_dashboard"></activity>
-        <activity android:name=".app.ui.SignUpActivity" />
-        <activity android:name=".app.ui.MainActivity">
+            android:name=".app.ui.activities.DashboardActivity"
+            android:label="@string/title_activity_dashboard" />
+        <activity android:name=".app.ui.activities.SignUpActivity" />
+        <activity android:name=".app.ui.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
